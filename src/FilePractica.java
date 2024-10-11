@@ -1,7 +1,9 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class FilePractica {
     public static void main(String[] args) throws IOException {
@@ -40,5 +42,20 @@ public class FilePractica {
         pw2.println("Con el método flush(), se escribe en el archivo las líneas que haya almacenado en el buffer.");
         pw2.flush(); // Escribir lo que hay almacenado en el buffer
         pw2.close(); // Siempre cerrar el PrintWriter
+
+        // LEER UN FICHERO CON SCANNER:
+        File archivo2 = new File("resources\\Prueba Texto 3.txt"); // Se crea un objeto File con la ruta del archivo
+        Scanner sc = null; // Se crea un Scanner fuera del try-catch para poder cerrarlo en el finally  
+        // Se intenta abrir el archivo y leer su contenido con un try-catch, por si el archivo no existe
+        try {
+            sc = new Scanner(archivo2); // Se asocia el Scanner con el archivo
+            while (sc.hasNextLine()) { // Mientras haya líneas en el archivo, se imprime la siguiente línea
+                System.out.println(sc.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage()); // Si no se encuentra el archivo, se imprime el mensaje de error
+        } finally {
+            sc.close(); // Se cierra el Scanner se encuentre el archivo o no
+        }
     }
 }
