@@ -1,0 +1,1 @@
+Hola desde FileWriter. Con el método write(), puedo escribir cadenas de texto y encadenar variables y expresiones. Por ejemplo, puedo escribir 'Hola, Mundo' encadenando este String con el String 'nombre' así: hola, Usuario.

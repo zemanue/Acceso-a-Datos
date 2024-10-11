@@ -1,0 +1,4 @@
+Hola desde PrintWriter. 
+Con el método println(), puedo escribir cadenas de texto, variables y expresiones por líneas.
+También se pueden utilizar para escribir los métodos print() y printf().
+Con el método flush(), se escribe en el archivo las líneas que haya almacenado en el buffer.
