@@ -1,5 +1,8 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,9 +31,8 @@ public class FilePractica {
         pw3.close();       
         
         // Escribir con FileWriter:
-        
         fw.write("Hola desde FileWriter. ");
-        fw.write("Con el método write(), puedo escribir cadenas de texto y encadenar variables y expresiones. ");
+        fw.write("Con el método write(), puedo escribir cadenas de texto y encadenar variables y expresiones en una misma línea. ");
         String nombre = "Usuario";
         fw.write("Por ejemplo, puedo escribir 'Hola, Mundo' encadenando este String con el String 'nombre' así: hola, " + nombre + ".");
         fw.close(); // Siempre cerrar el FileWriter
@@ -49,6 +51,7 @@ public class FilePractica {
         // Se intenta abrir el archivo y leer su contenido con un try-catch, por si el archivo no existe
         try {
             sc = new Scanner(archivo2); // Se asocia el Scanner con el archivo
+            System.out.println("Leyendo archivo con Scanner: ");
             while (sc.hasNextLine()) { // Mientras haya líneas en el archivo, se imprime la siguiente línea
                 System.out.println(sc.nextLine());
             }
@@ -56,6 +59,32 @@ public class FilePractica {
             System.out.println(e.getMessage()); // Si no se encuentra el archivo, se imprime el mensaje de error
         } finally {
             sc.close(); // Se cierra el Scanner se encuentre el archivo o no
+        }
+
+        // ESCRIBIR EN UN FICHERO CON BUFFEREDWRITER:
+        // Hace falta crear un BufferedWriter con un FileWriter
+        BufferedWriter bw = new BufferedWriter(new FileWriter("resources/Prueba Texto 4.txt"));
+        bw.write("Hola desde BufferedWriter");
+        bw.newLine();
+        bw.write("Para cambiar de línea, se utiliza el método newLine()");
+        bw.newLine();
+        bw.write("Para escribir lo almacenado en el archivo usamos flush(), o bien close() para cerrarlo");
+        bw.close(); // Cierra el BufferedWriter, haciendo flush() automáticamente
+
+        // LEER UN FICHERO CON BUFFEREDREADER:
+        // Hace falta crear un BufferedReader con un FileReader
+        BufferedReader br = new BufferedReader(new FileReader("resources/Prueba Texto 4.txt"));
+        try {
+            System.out.println("Leyendo archivo con BufferedReader: ");
+            String linea = br.readLine(); // Lee la primera línea del archivo
+            while (linea != null) { // Si la línea es distinta de null:
+                System.out.println(linea); // Se imprime la línea
+                linea = br.readLine(); // Se lee la siguiente línea
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            br.close();
         }
     }
 }

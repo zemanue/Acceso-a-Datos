@@ -1,0 +1,2 @@
+Hola desde BufferedWriter
+Para cambiar de línea, se utiliza el método newLine()
