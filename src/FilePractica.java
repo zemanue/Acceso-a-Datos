@@ -22,6 +22,7 @@ public class FilePractica {
         // Crear a partir de un FileWriter
         FileWriter fw = new FileWriter("resources/Prueba Texto 2.txt");
         PrintWriter pw = new PrintWriter(fw);
+        pw.checkError(); // Comprobar errores
 
         //Crear a partir de una ruta (si no existe el fichero, se crea)
         PrintWriter pw2 = new PrintWriter("resources/Prueba Texto 3.txt"); 

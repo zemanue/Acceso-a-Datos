@@ -1,2 +1,3 @@
 Hola desde BufferedWriter
 Para cambiar de línea, se utiliza el método newLine()
+Para escribir lo almacenado en el archivo usamos flush(), o bien close() para cerrarlo
