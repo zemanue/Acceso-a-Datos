@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,13 +18,17 @@ public class FicherosTarea1 {
 
         // Leemos el contenido del archivo usando la clase BufferedReader
         BufferedReader br = new BufferedReader(new FileReader(datosTxt));
-        System.out.println("Leyendo datos.txt:");
-        String linea = br.readLine();
-        while (linea != null) {
-            System.out.println(linea);
-            linea = br.readLine();
+        try {
+            System.out.println("Leyendo datos.");
+            String linea = br.readLine();
+            while (linea != null) {
+                System.out.println(linea);
+                linea = br.readLine();
+            }    
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            br.close();
         }
-        br.close();
-
     }
 }
