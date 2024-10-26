@@ -78,10 +78,8 @@ VALUES (1, 4, 1);
 INSERT INTO PRODUCTOS (Nombre, Precio) 
 VALUES ('Pizza 4 Quesos', 8.99);
 
--- Añadir un pedido del cliente
 INSERT INTO PEDIDOS (ID_cliente, Precio) 
 VALUES (1, 8.99);
 
--- Añadir detalle de pedido para asociar el producto al pedido
 INSERT INTO PEDIDOS_PRODUCTOS (ID_pedido, ID_producto, Cantidad, Precio) 
 VALUES (1, 1, 1, 8.99);
