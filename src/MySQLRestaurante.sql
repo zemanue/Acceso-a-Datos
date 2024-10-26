@@ -24,7 +24,7 @@ CREATE TABLE CLIENTES (
 
 CREATE TABLE RESERVAS (
     ID_reserva INT AUTO_INCREMENT,
-    ID_cliente VARCHAR(50),
+    ID_cliente INT,
     Fecha DATE, 
     Hora TIME,
     Estado VARCHAR(15),
@@ -66,4 +66,22 @@ CREATE TABLE PEDIDOS_PRODUCTOS (
     FOREIGN KEY (ID_producto) REFERENCES PRODUCTOS (ID_producto)
 );
 
+INSERT INTO CLIENTES (Nombre, Apellidos, Email, Num_telefono) 
+VALUES ('Jose Manuel', 'Redondo Conde', 'manureco.97@gmail.com', '621626162');
 
+INSERT INTO RESERVAS (ID_cliente, Fecha, Hora, Estado) 
+VALUES (1, '2024-11-01', '19:00:00', 'Confirmado');
+
+INSERT INTO MESAS (Num_mesa, Capacidad_maxima, ID_reserva) 
+VALUES (1, 4, 1);
+
+INSERT INTO PRODUCTOS (Nombre, Precio) 
+VALUES ('Pizza 4 Quesos', 8.99);
+
+-- Añadir un pedido del cliente
+INSERT INTO PEDIDOS (ID_cliente, Precio) 
+VALUES (1, 8.99);
+
+-- Añadir detalle de pedido para asociar el producto al pedido
+INSERT INTO PEDIDOS_PRODUCTOS (ID_pedido, ID_producto, Cantidad, Precio) 
+VALUES (1, 1, 1, 8.99);
