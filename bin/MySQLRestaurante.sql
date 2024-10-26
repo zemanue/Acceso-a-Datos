@@ -1,4 +1,13 @@
 
+-- El objetivo de esta tarea es que diseñes un modelo entidad-relación (ER) que permita gestionar de manera eficiente las reservas, 
+-- pedidos y productos de un restaurante. 
+-- Deberás identificar las entidades clave, sus atributos, las relaciones entre ellas y las cardinalidades.  
+-- Requisitos: El modelo debe incluir al menos las siguientes entidades y relaciones:  
+-- * Cliente: Puede realizar varias reservas.  
+-- * Reserva: Relacionada con una o más mesas.  
+-- * Mesa: Tiene una capacidad determinada y puede ser asignada a una reserva.  
+-- * Pedido: Relacionado con uno o más productos y puede ser realizado por un cliente. 
+-- * Producto: Incluye la información del nombre y precio, y puede formar parte de varios pedidos.  
 
 CREATE DATABASE RESTAURANTE;
 
@@ -56,3 +65,5 @@ CREATE TABLE PEDIDOS_PRODUCTOS (
     FOREIGN KEY (ID_pedido) REFERENCES PEDIDOS (ID_pedido),
     FOREIGN KEY (ID_producto) REFERENCES PRODUCTOS (ID_producto)
 );
+
+
