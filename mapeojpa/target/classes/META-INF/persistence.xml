@@ -1,0 +1,28 @@
+<persistence version="2.2" 
+            xmlns="https://jakarta.ee/xml/ns/persistence"
+            xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_2_2.xsd">
+    <!-- También vale para versiones de Hibernate anteriores a 5.6:  -->
+    <!-- <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"> -->
+    <!-- DEFINICIÓN DE LA UNIDAD DE PERSISTENCIA -->
+    <persistence-unit name="mapeojpaPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <!-- Declaración de las entidades que se van a mapear -->
+        <class>com.mapeojpa.Cliente</class>
+        <class>com.mapeojpa.Pedido</class>
+        <properties>
+            <!-- CONFIGURACIÓN DE LA CONEXIÓN -->
+            <!-- La URL de la base de datos, nombre de usuario, contraseña y el tipo de driver -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mapeojpa"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <!-- PROPIEDADES DE HIBERNATE -->
+            <!-- El dialecto y la configuración ("update" para actualizar la base de datos) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- Muestra las consultas SQL generadas en la consola. -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- Formatea las consultas SQL para mayor legibilidad. -->
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
