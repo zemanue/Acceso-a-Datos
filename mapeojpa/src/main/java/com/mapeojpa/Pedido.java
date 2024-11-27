@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
-    private String idPedido;
+    private Integer idPedido;
 
     private int totalProductos;
     private int totalPrecio;
@@ -27,11 +27,11 @@ public class Pedido implements Serializable {
     public Pedido() {
     }
 
-    public String getIdPedido() {
+    public Integer getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(String idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 

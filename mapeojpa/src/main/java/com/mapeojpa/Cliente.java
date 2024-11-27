@@ -1,7 +1,7 @@
 package com.mapeojpa;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idCliente;
+    private Integer idCliente;
 
     private String nombre;
     private String apellido;
@@ -24,16 +24,16 @@ public class Cliente implements Serializable {
 
     // Relación uno a muchos: debe ser una lista, para poder registrar más de un pedido
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private ArrayList<Pedido> pedidos;
+    private List<Pedido> pedidos;
 
     public Cliente() {
     }
 
-    public String getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(String idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -77,11 +77,11 @@ public class Cliente implements Serializable {
         this.direccion = direccion;
     }
 
-    public ArrayList<Pedido> getPedidos() {
+    public List<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(ArrayList<Pedido> pedidos) {
+    public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
 
