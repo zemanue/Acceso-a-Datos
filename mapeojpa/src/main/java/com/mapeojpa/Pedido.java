@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,6 +20,7 @@ public class Pedido implements Serializable {
     private Date fecha;
 
     @ManyToOne
+    @JoinColumn(referencedColumnName = "idCliente")
     private Cliente cliente;
 
     public Pedido() {
