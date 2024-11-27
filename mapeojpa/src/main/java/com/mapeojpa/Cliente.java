@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Cliente implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String idCliente;
 
     private String nombre;
