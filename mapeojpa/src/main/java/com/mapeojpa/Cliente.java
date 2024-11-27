@@ -3,6 +3,7 @@ package com.mapeojpa;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class Cliente implements Serializable {
     private String direccion;
 
     // Relación uno a muchos: debe ser una lista, para poder registrar más de un pedido
-    @OneToMany
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private ArrayList<Pedido> pedidos;
 
     public Cliente() {

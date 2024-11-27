@@ -3,6 +3,7 @@ package com.mapeojpa;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class Pedido implements Serializable {
     private int totalPrecio;
     private Date fecha;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "idCliente")
     private Cliente cliente;
 
