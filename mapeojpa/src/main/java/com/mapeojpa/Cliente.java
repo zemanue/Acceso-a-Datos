@@ -1,11 +1,13 @@
 package com.mapeojpa;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente implements Serializable {
@@ -18,6 +20,10 @@ public class Cliente implements Serializable {
     private int telefono;
     private String email;
     private String direccion;
+
+    // Relación uno a muchos: debe ser una lista, para poder registrar más de un pedido
+    @OneToMany
+    private ArrayList<Pedido> pedidos;
 
     public Cliente() {
     }
@@ -68,6 +74,14 @@ public class Cliente implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
 }

@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pedido implements Serializable {
@@ -16,6 +17,8 @@ public class Pedido implements Serializable {
     private int totalProductos;
     private int totalPrecio;
     private Date fecha;
+
+    @ManyToOne
     private Cliente cliente;
 
     public Pedido() {
