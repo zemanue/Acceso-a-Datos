@@ -31,8 +31,27 @@
 
 package com.mapeojpa;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class Main {
     public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("mapeojpaPersistenceUnit");
+        EntityManager em = emf.createEntityManager();
 
+        em.getTransaction().begin();
+        Cliente cliente = new Cliente();
+        cliente.setNombre("Juan");
+        cliente.setApellido("Perez");
+        cliente.setTelefono(123456789);
+        cliente.setEmail("juanperez@example.com");
+        cliente.setDireccion("Calle 123");
+
+        Pedido pedido1 = new Pedido();
+        pedido1.setTotalProductos(2);
+        pedido1.setTotalPrecio(100);
+        pedido1.setFecha(new java.sql.Date(System.currentTimeMillis()));
+        pedido1.setCliente(cliente);
     }
 }
