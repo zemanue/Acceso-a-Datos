@@ -41,17 +41,20 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        Cliente cliente = new Cliente();
-        cliente.setNombre("Juan");
-        cliente.setApellido("Perez");
-        cliente.setTelefono(123456789);
-        cliente.setEmail("juanperez@example.com");
-        cliente.setDireccion("Calle 123");
 
+        // Crear y guardar un cliente
+        Cliente cliente1 = new Cliente();
+        cliente1.setNombre("Juan");
+        cliente1.setApellido("Perez");
+        cliente1.setTelefono(123456789);
+        cliente1.setEmail("juanperez@example.com");
+        cliente1.setDireccion("Calle 123");
+
+        // Crear y guardar un pedido (asociado al cliente)
         Pedido pedido1 = new Pedido();
         pedido1.setTotalProductos(2);
         pedido1.setTotalPrecio(100);
         pedido1.setFecha(new java.sql.Date(System.currentTimeMillis()));
-        pedido1.setCliente(cliente);
+        pedido1.setCliente(cliente1);
     }
 }
