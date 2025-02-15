@@ -1,0 +1,64 @@
+<libros>
+    <libro>
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <precio>19.25</precio>
+        <anio>1949</anio>
+    </libro>
+    <libro>
+        <titulo>Un mundo feliz</titulo>
+        <autor>Aldous Huxley</autor>
+        <precio>18.50</precio>
+        <anio>1932</anio>
+    </libro>
+    <libro>
+        <titulo>El gran Gatsby</titulo>
+        <autor>F. Scott Fitzgerald</autor>
+        <precio>15.99</precio>
+        <anio>1925</anio>
+    </libro>
+    <libro>
+        <titulo>En busca del tiempo perdido</titulo>
+        <autor>Marcel Proust</autor>
+        <precio>22.40</precio>
+        <anio>1913</anio>
+    </libro>
+    <libro>
+        <titulo>Crimen y castigo</titulo>
+        <autor>Fiódor Dostoyevski</autor>
+        <precio>17.75</precio>
+        <anio>1866</anio>
+    </libro>
+    <libro>
+        <titulo>Cien años de soledad</titulo>
+        <autor>Gabriel García Márquez</autor>
+        <precio>20.00</precio>
+        <anio>1967</anio>
+    </libro>
+    <libro>
+        <titulo>Orgullo y prejuicio</titulo>
+        <autor>Jane Austen</autor>
+        <precio>14.30</precio>
+        <anio>1813</anio>
+    </libro>
+    <libro>
+        <titulo>La Odisea</titulo>
+        <autor>Homero</autor>
+        <precio>25.00</precio>
+        <anio>-800</anio>
+    </libro>
+    <libro>
+        <titulo>Don Quijote de la Mancha</titulo>
+        <autor>Miguel de Cervantes</autor>
+        <precio>19.90</precio>
+        <anio>1605</anio>
+    </libro>
+    <libro>
+        <titulo>El guardián entre el centeno</titulo>
+        <autor>J.D. Salinger</autor>
+        <precio>16.50</precio>
+        <anio>1951</anio>
+    </libro>
+</libros>
+
+
