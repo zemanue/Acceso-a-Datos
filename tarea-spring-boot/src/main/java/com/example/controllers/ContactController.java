@@ -2,8 +2,10 @@ package com.example.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,28 +25,34 @@ public class ContactController {
     private ContactService contactService;
     
     // Agregar métodos para manejar las solicitudes HTTP relacionadas con Contacto
-    // Obtener todos los contactos
+    // Obtiene la lista de todos los contactos
     @GetMapping("/")
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
 
-    // Obtener un contacto por ID
+    // Obtiene un contacto específico por su ID
     @GetMapping("/{id}")
     public Contact getContactById(int id) {
         return contactService.getContactById(id);
     }
 
-    // Crear un nuevo contacto
+    // Crea un nuevo contacto (envía un objeto Contacto en el cuerpo de la solicitud)
     @PostMapping("/")
     public Contact createContact(@RequestBody Contact contacto) {
         return contactService.createContact(contacto);
     }
 
-    // Eliminar un contacto por ID
-    @PostMapping("/delete/{id}")
-    public void deleteContact(int id) {
-        contactService.deleteContact(id);
+    // Actualiza un contacto existente por su ID
+    @PutMapping("/{id}")
+    public Contact updateContact(int id, @RequestBody Contact contacto) {
+        return contactService.updateContact(id, contacto);
+    }
+
+    // Elimina un contacto por su ID
+    @DeleteMapping("/{id}")
+    public boolean deleteContact(int id) {
+        return contactService.deleteContact(id);
     }
     
 }

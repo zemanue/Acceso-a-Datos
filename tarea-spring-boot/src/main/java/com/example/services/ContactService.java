@@ -30,7 +30,20 @@ public class ContactService {
         return contactRepository.save(contacto); // Guarda un nuevo contacto
     }
 
-    public void deleteContact(int id) {
-        contactRepository.deleteById(id); // Elimina un contacto por su ID
+    public Contact updateContact(int id, Contact contacto) {
+        if (contactRepository.existsById(id)) { 
+            return contactRepository.save(contacto); // Actualiza el contacto
+        } else {
+            return null; // Si no existe, devuelve null
+        }
+    }
+
+    public boolean deleteContact(int id) {
+        if (contactRepository.existsById(id)) {
+            contactRepository.deleteById(id); // Elimina el contacto por su ID
+            return true; 
+        } else {
+            return false; // Si no existe, devuelve false
+        }
     }
 }
